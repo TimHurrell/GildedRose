@@ -58,6 +58,12 @@ namespace csharp
             app.UpdateQuality();
             Assert.AreEqual(-1, Items5[0].SellIn);
             Assert.AreEqual(50, Items5[0].Quality);
+
+            IList<Item> Items6 = new List<Item> { new Item { Name = "Aged Brie", SellIn = 0, Quality = 80 } };
+            app = new GildedRose(Items6);
+            app.UpdateQuality();
+            Assert.AreEqual(-1, Items6[0].SellIn);
+            Assert.AreEqual(80, Items6[0].Quality);
         }
 
         [Test]
@@ -92,7 +98,97 @@ namespace csharp
             app.UpdateQuality();
             Assert.AreEqual(0, Items5[0].SellIn);
             Assert.AreEqual(50, Items5[0].Quality);
+
+            IList<Item> Items6 = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80 } };
+            app = new GildedRose(Items6);
+            app.UpdateQuality();
+            Assert.AreEqual(0, Items6[0].SellIn);
+            Assert.AreEqual(80, Items6[0].Quality);
         }
+
+        [Test]
+        public void concert()
+        {
+            IList<Item> Items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 0 } };
+            GildedRose app = new GildedRose(Items);
+            app.UpdateQuality();
+            Assert.AreEqual(-1, Items[0].SellIn);
+            Assert.AreEqual(0, Items[0].Quality);
+
+            IList<Item> Items1 = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 30, Quality = 30 } };
+            app = new GildedRose(Items1);
+            app.UpdateQuality();
+            Assert.AreEqual(29, Items1[0].SellIn);
+            Assert.AreEqual(31, Items1[0].Quality);
+
+            IList<Item> Items2 = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 7, Quality = 7 } };
+            app = new GildedRose(Items2);
+            app.UpdateQuality();
+            Assert.AreEqual(6, Items2[0].SellIn);
+            Assert.AreEqual(9, Items2[0].Quality);
+
+            IList<Item> Items4 = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 3, Quality = 5 } };
+            app = new GildedRose(Items4);
+            app.UpdateQuality();
+            Assert.AreEqual(2, Items4[0].SellIn);
+            Assert.AreEqual(8, Items4[0].Quality);
+
+            IList<Item> Items5 = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 50 } };
+            app = new GildedRose(Items5);
+            app.UpdateQuality();
+            Assert.AreEqual(-1, Items5[0].SellIn);
+            Assert.AreEqual(0, Items5[0].Quality);
+
+            IList<Item> Items6 = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 80 } };
+            app = new GildedRose(Items6);
+            app.UpdateQuality();
+            Assert.AreEqual(-1, Items6[0].SellIn);
+            Assert.AreEqual(0, Items6[0].Quality);
+        }
+        [Test]
+        public void normalitem()
+        {
+            IList<Item> Items = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = 0, Quality = 0 } };
+            GildedRose app = new GildedRose(Items);
+            app.UpdateQuality();
+            Assert.AreEqual(-1, Items[0].SellIn);
+            Assert.AreEqual(0, Items[0].Quality);
+
+            IList<Item> Items1 = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = 30, Quality = 30 } };
+            app = new GildedRose(Items1);
+            app.UpdateQuality();
+            Assert.AreEqual(29, Items1[0].SellIn);
+            Assert.AreEqual(29, Items1[0].Quality);
+
+            IList<Item> Items2 = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = 7, Quality = 7 } };
+            app = new GildedRose(Items2);
+            app.UpdateQuality();
+            Assert.AreEqual(6, Items2[0].SellIn);
+            Assert.AreEqual(6, Items2[0].Quality);
+
+            IList<Item> Items4 = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = 3, Quality = 5 } };
+            app = new GildedRose(Items4);
+            app.UpdateQuality();
+            Assert.AreEqual(2, Items4[0].SellIn);
+            Assert.AreEqual(4, Items4[0].Quality);
+
+            IList<Item> Items5 = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = 0, Quality = 50 } };
+            app = new GildedRose(Items5);
+            app.UpdateQuality();
+            Assert.AreEqual(-1, Items5[0].SellIn);
+            Assert.AreEqual(48, Items5[0].Quality);
+
+            IList<Item> Items6 = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = 0, Quality = 80 } };
+            app = new GildedRose(Items6);
+            app.UpdateQuality();
+            Assert.AreEqual(-1, Items6[0].SellIn);
+            Assert.AreEqual(78, Items6[0].Quality);
+        }
+
+        //
+
+
+
 
     }
 }
