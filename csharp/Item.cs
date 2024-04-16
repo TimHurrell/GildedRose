@@ -47,4 +47,50 @@
         }
     }
 
+
+    public class Itembrie : ItemNormal
+    {
+
+
+        // Method to update the quality
+        public new void UpdateQuality()
+        {
+            if (Quality < 50)
+            {
+                if (SellIn >= 1)
+                { Quality = Quality + 1; }
+                else
+                { Quality = Quality + 2; }
+
+            }
+            SellIn--;
+        }
+    }
+
+
+    public class Itemticket : ItemNormal
+    {
+
+
+        // Method to update the quality
+        public new void UpdateQuality()
+        {
+            if (Quality < 50)
+            {
+                if (SellIn <= 3)
+                { Quality = Quality + 3; }
+                else if (SellIn <= 10)
+                { Quality = Quality + 2; }
+                else 
+                { Quality = Quality + 1; }
+
+            }
+            if (SellIn <= 0)
+            { Quality = 0;
+            }
+
+            SellIn--;
+        }
+    }
+
 }
