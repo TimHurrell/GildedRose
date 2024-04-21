@@ -37,7 +37,7 @@ namespace csharp
 				new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
             };
 
-            var app = new GildedRose(Items);
+            //var app = new GildedRose(Items);
 
 
             for (var i = 0; i < 31; i++)
@@ -49,7 +49,7 @@ namespace csharp
                     System.Console.WriteLine(Items[j]);
                 }
                 Console.WriteLine("");
-                app.UpdateQuality();
+                //app.UpdateQuality();
             }
         }
     }

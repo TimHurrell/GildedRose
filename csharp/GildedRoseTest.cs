@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace csharp
 {
@@ -8,7 +9,7 @@ namespace csharp
     {
        
 
-       
+       /*
         public void brie()
         {
             IList<Item> Items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 0, Quality = 0 } };
@@ -172,7 +173,55 @@ namespace csharp
             Assert.AreEqual(-1, Items6[0].SellIn);
             Assert.AreEqual(78, Items6[0].Quality);
         }
-     
+        */
+
+        [Test]
+
+
+        public void brieobject()
+        {
+            IList<Itembrie> Items = new List<Itembrie> { new Itembrie { Name = "Aged Brie", SellIn = 0, Quality = 0 } };
+            IList<ItemNormal> castedItems = Items.Cast<ItemNormal>().ToList(); // Explicitly cast to Item
+            GildedRose<ItemNormal> app = new GildedRose<ItemNormal>(castedItems);
+            app.UpdateQuality();
+            Assert.AreEqual(-1, Items[0].SellIn);
+            Assert.AreEqual(2, Items[0].Quality);
+            /*
+               IList<Itembrie> Items1 = new List<Itembrie> { new Itembrie { Name = "Aged Brie", SellIn = 30, Quality = 30 } };
+               IList<ItemNormal> castedItems1 = Items.Cast<ItemNormal>().ToList(); // Explicitly cast to Item
+               GildedRose<ItemNormal> app1 = new GildedRose<ItemNormal>(castedItems1);
+               app1.UpdateQuality();
+               Assert.AreEqual(29, Items1[0].SellIn);
+               Assert.AreEqual(31, Items1[0].Quality);
+
+
+               IList<ItemNormal> Items2 = new List<ItemNormal> { new ItemNormal { Name = "Aged Brie", SellIn = 7, Quality = 7 } };
+               GildedRose<ItemNormal> app2 = new GildedRose<ItemNormal>(Items2);
+               app2.UpdateQuality();
+               Assert.AreEqual(6, Items[0].SellIn);
+               Assert.AreEqual(6, Items[0].Quality);
+
+               IList<ItemNormal> Items3 = new List<ItemNormal> { new ItemNormal { Name = "Aged Brie", SellIn = 3, Quality = 5 } };
+               GildedRose<ItemNormal> app3 = new GildedRose<ItemNormal>(Items3);
+               app3.UpdateQuality();
+               Assert.AreEqual(2, Items[0].SellIn);
+               Assert.AreEqual(4, Items[0].Quality);
+
+               IList<ItemNormal> Items4 = new List<ItemNormal> { new ItemNormal { Name = "Aged Brie", SellIn = 0, Quality = 50 } };
+               GildedRose<ItemNormal> app4 = new GildedRose<ItemNormal>(Items4);
+               app4.UpdateQuality();
+               Assert.AreEqual(-1, Items[0].SellIn);
+               Assert.AreEqual(48, Items[0].Quality);
+
+               IList<ItemNormal> Items5 = new List<ItemNormal> { new ItemNormal { Name = "Aged Brie", SellIn = 0, Quality = 80 } };
+               GildedRose<ItemNormal> app5 = new GildedRose<ItemNormal>(Items5);
+               app5.UpdateQuality();
+               Assert.AreEqual(-1, Items[0].SellIn);
+               Assert.AreEqual(78, Items[0].Quality);
+               */
+        }
+
+
 
 
 

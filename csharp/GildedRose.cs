@@ -3,13 +3,24 @@ using System.Collections.Generic;
 
 namespace csharp
 {
-    public class GildedRose
+  /*  public class GildedRose
     {
         IList<Item> Items;
         public GildedRose(IList<Item> Items)
         {
             this.Items = Items;
+        } */
+
+    public class GildedRose<T> where T : ItemNormal
+    {
+        public IList<T> Items { get; }
+
+        public GildedRose(IList<T> items)
+        {
+            Items = items;
         }
+        
+
 
         public void UpdateQuality()
         {
@@ -84,6 +95,14 @@ namespace csharp
                         }
                     }
                 }
+            }
+        }
+
+        public void UpdateQuality2()
+        {
+            foreach (var item in Items)
+            {
+                item.UpdateQuality();
             }
         }
 
