@@ -5,6 +5,7 @@ namespace csharp
 {
     public class Program
     {
+        // add trivial change
         public static void Main(string[] args)
         {
             Console.WriteLine("OMGHAI!");
