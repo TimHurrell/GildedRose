@@ -1,7 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace csharp
 {
+
+    public interface IGildedRoseStrategy
+    {
+        IList<Item> Items { get; }
+        public void UpdateQuality();
+        
+    }
     public class GildedRose
     {
         IList<Item> Items;
