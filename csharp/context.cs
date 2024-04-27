@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace csharp
 {
     public class Context
     {
         private IGildedRoseStrategy? _GildedRoseStrategy;
+        private readonly IEnumerable<IGildedRoseStrategy> GildedRoseStrategies;
 
-        public void SetStrategy(IGildedRoseStrategy strategy)
+
+        public Context(IEnumerable<IGildedRoseStrategy> GildedRoseStrategies)
         {
-            _GildedRoseStrategy = strategy;
+            this.GildedRoseStrategies = GildedRoseStrategies;
         }
 
     }
