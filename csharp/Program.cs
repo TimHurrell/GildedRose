@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
 namespace csharp
 {
     public class Program
@@ -38,10 +39,23 @@ namespace csharp
 				new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
             };
 
-            var app = new GildedRose(Items);
+            IList<Item> ItemsBrie = new List<Item> { };
+            IList<Item> ItemsNormal = new List<Item> { };
+            foreach (var item in Items)
+                if (item.Name == "Aged Brie")
+                {
+                    ItemsBrie.Add(item);
+                }
+                else
+                {
+                    ItemsNormal.Add(item);
+                }
+            IGildedRoseStrategy strategy;
+            strategy = new GildedRoseBrie(ItemsBrie);
+            strategy = new GildedRoseNormal(ItemsNormal);
 
-
-            for (var i = 0; i < 31; i++)
+            /*
+            for (var i = 0; i < 2; i++)
             {
                 Console.WriteLine("-------- day " + i + " --------");
                 Console.WriteLine("name, sellIn, quality");
@@ -50,8 +64,53 @@ namespace csharp
                     System.Console.WriteLine(Items[j]);
                 }
                 Console.WriteLine("");
-                app.UpdateQuality();
+                foreach (var item in Items)
+                {
+                    IGildedRoseStrategy strategy;
+                    if (item.Name == "Aged Brie")
+                    {
+                        strategy = new GildedRoseBrie(Items);
+                    }
+                    else
+                    {
+                        strategy = new GildedRoseNormal(Items);
+                    }
+                    // Create a context with the selected strategy
+                    var context = new GildedRoseContext(strategy);
+                    // Update the quality using the context
+                    context.UpdateQuality();
+
+
+                }
+
+                
             }
+            */
+            for (var i = 0; i < 2; i++)
+            {
+                Console.WriteLine("-------- day " + i + " --------");
+                Console.WriteLine("name, sellIn, quality");
+                for (var j = 0; j < Items.Count; j++)
+                {
+                    System.Console.WriteLine(Items[j]);
+                }
+                Console.WriteLine("");
+
+                var context = new GildedRoseContext(strategy);
+                    // Update the quality using the context
+                context.UpdateQuality();
+
+
+
+            }
+
+
+
+
+
         }
     }
 }
+            
+
+       

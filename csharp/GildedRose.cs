@@ -105,20 +105,52 @@ namespace csharp
         public void UpdateQuality()
         {
             for (var i = 0; i < Items.Count; i++)
-                if (Items[i].Name == "Aged Brie")
-                {
-                    if (Items[i].Quality < 50)
-                    
-                    {
-                        if (Items[i].SellIn >= 1)
-                        { Items[i].Quality = Items[i].Quality + 1; }
-                        else
-                        { Items[i].Quality = Items[i].Quality + 2; }
+            {
+                if (Items[i].Quality < 50)
 
-                    }
-                    Items[i].SellIn--;
+                {
+                    if (Items[i].SellIn >= 1)
+                    { Items[i].Quality = Items[i].Quality + 1; }
+                    else
+                    { Items[i].Quality = Items[i].Quality + 2; }
+
                 }
+                Items[i].SellIn--;
+            }
+                
+        }
+
+    }
+
+    public class GildedRoseNormal : IGildedRoseStrategy
+    {
+        IList<Item> Items;
+        public GildedRoseNormal(IList<Item> Items)
+        {
+            this.Items = Items;
+        }
+        public void UpdateQuality()
+        {
+            for (var i = 0; i < Items.Count; i++)
+            {
+                if (Items[i].Quality < 50)
+
+                {
+                    if (Items[i].SellIn <= 3)
+                    { Items[i].Quality = Items[i].Quality + 3; }
+                    else if (Items[i].SellIn <= 10)
+                    { Items[i].Quality = Items[i].Quality + 2; }
+                    else
+                    { Items[i].Quality = Items[i].Quality + 1; }
+
+                }
+                if (Items[i].SellIn <= 0)
+                { Items[i].Quality = 0; }
+                Items[i].SellIn--;
+            }
+                
         }
 
     }
 }
+
