@@ -106,7 +106,7 @@ namespace csharp
         {
             for (var i = 0; i < Items.Count; i++)
             {
-                if (Items[i].Quality < 50)
+                if (Items[i].Quality <= 50)
 
                 {
                     if (Items[i].SellIn >= 1)
@@ -133,22 +133,18 @@ namespace csharp
         {
             for (var i = 0; i < Items.Count; i++)
             {
-                if (Items[i].Quality < 50)
+                if (Items[i].Quality > 0)
 
                 {
-                    if (Items[i].SellIn <= 3)
-                    { Items[i].Quality = Items[i].Quality + 3; }
-                    else if (Items[i].SellIn <= 10)
-                    { Items[i].Quality = Items[i].Quality + 2; }
+                    if (Items[i].SellIn > 0)
+                    { Items[i].Quality--; }
                     else
-                    { Items[i].Quality = Items[i].Quality + 1; }
+                    { Items[i].Quality = Items[i].Quality - 2; }
 
                 }
-                if (Items[i].SellIn <= 0)
-                { Items[i].Quality = 0; }
                 Items[i].SellIn--;
             }
-                
+
         }
 
     }

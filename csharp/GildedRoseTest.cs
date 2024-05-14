@@ -229,6 +229,45 @@ namespace csharp
             Assert.AreEqual(-1, Items6[0].SellIn);
             Assert.AreEqual(78, Items6[0].Quality);
         }
+        [Test]
+        public void GRnormalitem()
+        {
+            IList<Item> Items = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = 0, Quality = 0 } };
+            GildedRoseNormal app = new GildedRoseNormal(Items);
+            app.UpdateQuality();
+            Assert.AreEqual(-1, Items[0].SellIn);
+            Assert.AreEqual(0, Items[0].Quality);
+
+            IList<Item> Items1 = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = 30, Quality = 30 } };
+            app = new GildedRoseNormal(Items1);
+            app.UpdateQuality();
+            Assert.AreEqual(29, Items1[0].SellIn);
+            Assert.AreEqual(29, Items1[0].Quality);
+
+            IList<Item> Items2 = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = 7, Quality = 7 } };
+            app = new GildedRoseNormal(Items2);
+            app.UpdateQuality();
+            Assert.AreEqual(6, Items2[0].SellIn);
+            Assert.AreEqual(6, Items2[0].Quality);
+
+            IList<Item> Items4 = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = 3, Quality = 5 } };
+            app = new GildedRoseNormal(Items4);
+            app.UpdateQuality();
+            Assert.AreEqual(2, Items4[0].SellIn);
+            Assert.AreEqual(4, Items4[0].Quality);
+
+            IList<Item> Items5 = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = 0, Quality = 50 } };
+            app = new GildedRoseNormal(Items5);
+            app.UpdateQuality();
+            Assert.AreEqual(-1, Items5[0].SellIn);
+            Assert.AreEqual(48, Items5[0].Quality);
+
+            IList<Item> Items6 = new List<Item> { new Item { Name = "Elixir of the Mongoose", SellIn = 0, Quality = 80 } };
+            app = new GildedRoseNormal(Items6);
+            app.UpdateQuality();
+            Assert.AreEqual(-1, Items6[0].SellIn);
+            Assert.AreEqual(78, Items6[0].Quality);
+        }
 
         //
     }
