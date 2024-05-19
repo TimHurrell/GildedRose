@@ -148,5 +148,21 @@ namespace csharp
         }
 
     }
+
+
+    public class GildedRoseSulfuras : IGildedRoseStrategy
+    {
+        IList<Item> Items;
+        public GildedRoseSulfuras(IList<Item> Items)
+        {
+            this.Items = Items;
+        }
+        public void UpdateQuality()
+        {
+           
+
+        }
+
+    }
 }
 

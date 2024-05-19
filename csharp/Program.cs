@@ -40,11 +40,16 @@ namespace csharp
             };
 
             IList<Item> ItemsBrie = new List<Item> { };
+            IList<Item> ItemsSulfuras = new List<Item> { };
             IList<Item> ItemsNormal = new List<Item> { };
             foreach (var item in Items)
                 if (item.Name == "Aged Brie")
                 {
                     ItemsBrie.Add(item);
+                }
+                else if (item.Name == "Sulfuras, Hand of Ragnaros")
+                {
+                    ItemsSulfuras.Add(item);
                 }
                 else
                 {
@@ -52,6 +57,7 @@ namespace csharp
                 }
             IGildedRoseStrategy strategy;
             strategy = new GildedRoseBrie(ItemsBrie);
+            strategy = new GildedRoseSulfuras(ItemsSulfuras);
             strategy = new GildedRoseNormal(ItemsNormal);
 
             /*

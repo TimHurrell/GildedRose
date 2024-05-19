@@ -150,6 +150,45 @@ namespace csharp
             Assert.AreEqual(0, Items6[0].SellIn);
             Assert.AreEqual(80, Items6[0].Quality);
         }
+        [Test]
+        public void GRsulfuras()
+        {
+            IList<Item> Items = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 0 } };
+            GildedRoseSulfuras app = new GildedRoseSulfuras(Items);
+            app.UpdateQuality();
+            Assert.AreEqual(0, Items[0].SellIn);
+            Assert.AreEqual(0, Items[0].Quality);
+
+            IList<Item> Items1 = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 30, Quality = 30 } };
+            app = new GildedRoseSulfuras(Items1);
+            app.UpdateQuality();
+            Assert.AreEqual(30, Items1[0].SellIn);
+            Assert.AreEqual(30, Items1[0].Quality);
+
+            IList<Item> Items2 = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 7, Quality = 7 } };
+            app = new GildedRoseSulfuras(Items2);
+            app.UpdateQuality();
+            Assert.AreEqual(7, Items2[0].SellIn);
+            Assert.AreEqual(7, Items2[0].Quality);
+
+            IList<Item> Items4 = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 1 } };
+            app = new GildedRoseSulfuras(Items4);
+            app.UpdateQuality();
+            Assert.AreEqual(0, Items4[0].SellIn);
+            Assert.AreEqual(1, Items4[0].Quality);
+
+            IList<Item> Items5 = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 50 } };
+            app = new GildedRoseSulfuras(Items5);
+            app.UpdateQuality();
+            Assert.AreEqual(0, Items5[0].SellIn);
+            Assert.AreEqual(50, Items5[0].Quality);
+
+            IList<Item> Items6 = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80 } };
+            app = new GildedRoseSulfuras(Items6);
+            app.UpdateQuality();
+            Assert.AreEqual(0, Items6[0].SellIn);
+            Assert.AreEqual(80, Items6[0].Quality);
+        }
 
         [Test]
         public void concert()
